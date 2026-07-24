@@ -31,11 +31,11 @@ body {
 .top-symbol {
     position: relative;
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 1.1em;
+    height: 1.1em;
     box-sizing: border-box;
     border: 3px solid #222222;
-    border-radius: 50%;
+    border-radius: 40%;
     font-family: 'JunicodeVF', serif;
     font-size: 3em;
     background-color: #f4f1ea;
