@@ -39,19 +39,19 @@ body {
     font-family: 'JunicodeVF', serif;
     font-size: 3em;
     background-color: #f4f1ea;
-    transform: translate(-50%, -50%);
     vertical-align: middle; /* Pitää ympyrän oikealla kohdalla rivillään */
 }
 
 /* Molemmat pentagrammit lukitaan tismaleen ympyrän keskipisteeseen */
 .pentagram-white, 
 .pentagram-black {
-    font-size: 2em;
+    font-size: 1em;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Siirtää merkin keskipisteen tasan ympyrän keskelle */
     line-height: 0; /* Poistaa fontin oletusrivivälin, jotta alareunaan ei jää tyhjää */
+    vertical-align: middle;
 }
 
 /* Värit */
