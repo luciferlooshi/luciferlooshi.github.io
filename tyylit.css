@@ -52,7 +52,6 @@ body {
     transform: translate(-50%, -50%); /* Siirtää merkin keskipisteen tasan ympyrän keskelle */
     line-height: 0; /* Poistaa fontin oletusrivivälin, jotta alareunaan ei jää tyhjää */
     vertical-align: middle;
-    transform: translateY(-0.2em);
 }
 
 /* Värit */
