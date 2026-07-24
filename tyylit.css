@@ -40,6 +40,8 @@ body {
     font-size: 3em;
     background-color: #f4f1ea;
     vertical-align: middle; /* Pitää ympyrän oikealla kohdalla rivillään */
+    transform: translate(-50%, -50%); /* Siirtää merkin keskipisteen tasan ympyrän keskelle */
+    line-height: 0; /* Poistaa fontin oletusrivivälin, jotta alareunaan ei jää tyhjää */
 }
 
 /* Molemmat pentagrammit lukitaan tismaleen ympyrän keskipisteeseen */
