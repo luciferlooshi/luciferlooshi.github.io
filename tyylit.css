@@ -29,8 +29,8 @@ body {
 
 /* Tämä määrittää koko symbolin lopullisen koon sivulla */
 .top-symbol-svg {
-    width: 3.4em;  /* Voit kasvattaa tai pienentää tätä vapaasti! */
-    height: 3.4em;
+    width: 6em;  /* Voit kasvattaa tai pienentää tätä vapaasti! */
+    height: 6em;
     display: inline-block;
 }
 
@@ -44,7 +44,7 @@ body {
 /* Tähtien yhteiset tyylit */
 .symbol-text {
     font-family: 'JunicodeVF', serif;
-    font-size: 70px; /* HUOM! Tämä arvo säätää tähtien koon suhteessa ympyrään (viewBox on 100x100) */
+    font-size: 50px; /* HUOM! Tämä arvo säätää tähtien koon suhteessa ympyrään (viewBox on 100x100) */
     
     /* Nämä kaksi komentoa tekevät SVG-taikaa ja keskittävät tekstin matemaattisesti */
     text-anchor: middle;         /* Vaakakuumakeskitys */
