@@ -17,7 +17,13 @@ body {
     margin: 0; /* Poistaa selaimeen vakiona tulevat valkoiset reunat */
     padding: 30px 15px; /* Antaa tilaa ylös ja sivuille, ettei teksti osu ruudun reunaan */
 }
-
+/* -----------------------------------------------------------
+ * 3. PÄÄSÄILIÖ (JOKA PITÄÄ KAIKEN LINJASSA)
+ * ----------------------------------------------------------- */
+.container {
+    max-width: 960px; 
+    margin: 0 auto; /* Tämä pitää huolen, että kavennettu laatikko pysyy keskellä ruutua */
+}
 
 /* -----------------------------------------------------------
  * 4. YLÄKUVA / SYMBOLI - SVG
