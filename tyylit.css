@@ -20,49 +20,44 @@ body {
 
 
 /* -----------------------------------------------------------
- * 4. YLÄKUVA / SYMBOLI - TODELLINEN KESKITYS
+ * 4. YLÄKUVA / SYMBOLI - SVG
  * ----------------------------------------------------------- */
 .top-image-container {
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* Ympyrä toimii absoluuttisen paikannuksen ankkurina (relative) */
-.top-symbol {
-    position: relative;
+/* Tämä määrittää koko symbolin lopullisen koon sivulla */
+.top-symbol-svg {
+    width: 6em;  /* Voit kasvattaa tai pienentää tätä vapaasti! */
+    height: 6em;
     display: inline-block;
-    width: 1.1em;
-    height: 1.1em;
-    box-sizing: border-box;
-    border: 3px solid #222222;
-    border-radius: 40%;
+}
+
+/* Ympyrän tyylit */
+.symbol-circle {
+    fill: #f4f1ea;       /* Ympyrän sisäväri (sama kuin sivun tausta) */
+    stroke: #222222;     /* Ympyrän reunaviivan väri */
+    stroke-width: 3px;   /* Reunaviivan paksuus */
+}
+
+/* Tähtien yhteiset tyylit */
+.symbol-text {
     font-family: 'JunicodeVF', serif;
-    font-size: 3em;
-    background-color: #f4f1ea;
-    vertical-align: middle; /* Pitää ympyrän oikealla kohdalla rivillään */
+    font-size: 70px; /* HUOM! Tämä arvo säätää tähtien koon suhteessa ympyrään (viewBox on 100x100) */
+    
+    /* Nämä kaksi komentoa tekevät SVG-taikaa ja keskittävät tekstin matemaattisesti */
+    text-anchor: middle;         /* Vaakakuumakeskitys */
+    dominant-baseline: central;  /* Pystysuuntakeskitys */
 }
 
-/* Molemmat pentagrammit lukitaan tismaleen ympyrän keskipisteeseen */
-.pentagram-white, 
-.pentagram-black {
-    font-size: 1.2em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Siirtää merkin keskipisteen tasan ympyrän keskelle */
-    line-height: 0; /* Poistaa fontin oletusrivivälin, jotta alareunaan ei jää tyhjää */
-    vertical-align: middle;
+.white-star {
+    fill: #ffffff; /* SVG:ssä tekstin väri määritetään fill-komennolla, ei colorilla */
 }
 
-/* Värit */
-.pentagram-white {
-    color: #ffffff;
+.black-star {
+    fill: #222222;
 }
-
-.pentagram-black {
-    color: #222222;
-}
-
 
 
 /* -----------------------------------------------------------
