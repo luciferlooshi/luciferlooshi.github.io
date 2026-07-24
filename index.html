@@ -21,15 +21,22 @@
     <!-- PÄÄSÄILIÖ: Tämä rajoittaa sivun maksimileveyttä ja pitää kaiken siististi linjassa -->
     <div class="container">
 
-<!-- YLIN KUVA: Kaksi Unicode-pentagrammia päällekkäin ympyrässä -->
+<!-- YLIN KUVA: Pomminvarma SVG-keskitys -->
         <div class="top-image-container">
-            <div class="top-symbol">
-                <!-- Musta alaspäinen pentagrammi (tulee valkoisen päälle) -->
-                <span class="pentagram-black">&#9959;</span>
-                <!-- Valkoinen ylöspäinen pentagrammi -->
-                <span class="pentagram-white">&#9956;</span>
+            <!-- viewBox luo 100x100 yksikön matemaattisen ruudukon -->
+            <svg class="top-symbol-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 
-            </div>
+                <!-- Täydellinen ympyrä: Keskipiste (cx, cy) on tasan 50, säde (r) on 46 -->
+                <circle cx="50" cy="50" r="46" class="symbol-circle" />
+                
+                <!-- Musta alaspäinen pentagrammi (keskitetty pisteeseen x=50, y=50) -->
+                <text x="50" y="50" class="symbol-text black-star">&#9959;</text>
+                
+                <!-- Valkoinen ylöspäinen pentagrammi (keskitetty pisteeseen x=50, y=50) -->
+                <text x="50" y="50" class="symbol-text white-star">&#9956;</text>
+                
+                
+            </svg>
         </div>
 
         <!-- PÄÄOTSIKKO -->
