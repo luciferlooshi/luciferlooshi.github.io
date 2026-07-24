@@ -29,8 +29,8 @@ body {
 
 /* Tämä määrittää koko symbolin lopullisen koon sivulla */
 .top-symbol-svg {
-    width: 6em;  /* Voit kasvattaa tai pienentää tätä vapaasti! */
-    height: 6em;
+    width: 3.4em;  /* Voit kasvattaa tai pienentää tätä vapaasti! */
+    height: 3.4em;
     display: inline-block;
 }
 
