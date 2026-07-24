@@ -47,7 +47,7 @@ body {
     font-size: 90px; /* HUOM! Tämä arvo säätää tähtien koon suhteessa ympyrään (viewBox on 100x100) */
     
     /* Nämä kaksi komentoa tekevät SVG-taikaa ja keskittävät tekstin matemaattisesti */
-    text-anchor: middle;         /* Vaakakuumakeskitys */
+    text-anchor: middle;         /* Vaakasuuntakeskitys */
     dominant-baseline: central;  /* Pystysuuntakeskitys */
 }
 
