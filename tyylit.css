@@ -37,7 +37,7 @@ body {
 /* Ympyrän tyylit */
 .symbol-circle {
     fill: #f4f1ea;       /* Ympyrän sisäväri (sama kuin sivun tausta) */
-    stroke: #222222;     /* Ympyrän reunaviivan väri */
+    stroke: #ffffff;     /* Ympyrän reunaviivan väri */
     stroke-width: 3px;   /* Reunaviivan paksuus */
 }
 
