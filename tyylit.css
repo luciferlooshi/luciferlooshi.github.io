@@ -94,31 +94,47 @@ body {
 }
 
 /* -----------------------------------------------------------
- * 8. YKSITTÄINEN SARAKE JA SEN SISÄLTÖ
+ * 8. YKSITTÄINEN SARAKE JA SEN SISÄLTÖ (SYMBOLEILLA)
  * ----------------------------------------------------------- */
 .column {
-    flex: 1; /* Tekee kaikista kolmesta sarakkeesta täsmälleen yhtä leveät */
+    flex: 1; 
     display: flex;
-    flex-direction: column; /* Laittaa kuvan ja tekstin allekkain sarakkeen sisällä */
+    flex-direction: column; 
 }
 
-.column-image {
-    width: 100%; /* Pakottaa pikkukuvan täyttämään koko sarakkeen leveyden */
-    height: auto; /* Pitää pikkukuvan mittasuhteet oikeina */
-    margin-bottom: 15px; /* Tilaa kuvan ja alla olevan tekstin väliin */
+/* Yhteiset asetukset kaikille kolmelle symbolille */
+.column-symbol {
+    font-family: 'JunicodeVF', serif;
+    font-size: 5em; /* Määrittää merkkien koon, säädä tarvittaessa (esim. 4em tai 6em) */
+    text-align: center; /* Keskittää symbolin sarakkeen keskelle */
+    margin-bottom: 15px; /* Jättää tilaa symbolin ja leipätekstin väliin */
+    line-height: 1; /* Estää turhan tyhjän tilan merkin ylä- ja alapuolella */
+}
+
+/* Vasen: Punainen */
+.symbol-left {
+    color: #cc0000; /* Tyylikäs syvä punainen retro-fiiliksellä */
+}
+
+/* Keski: Valkoinen */
+.symbol-center {
+    color: #ffffff; 
+}
+
+/* Oikea: Musta */
+.symbol-right {
+    color: #222222; /* Sama pehmeä musta kuin leipätekstissä */
 }
 
 .column-text {
     font-size: 1.1em;
     line-height: 1.5;
     margin: 0;
-    text-align: justify; /* Tasaa myös pikkukuvien tekstit reunoihin */
+    text-align: justify;
     white-space: pre-line;
-    /* TAVUTUS LISÄTTY TÄHÄN: */
-    -webkit-hyphens: auto; /* Varmistaa toimivuuden Safarilla / Applen laitteilla */
-    hyphens: auto;         /* Standardikomento kaikille nykyselaimille */
+    -webkit-hyphens: auto;
+    hyphens: auto;
 }
-
 /* -----------------------------------------------------------
  * 9. MOBIILIYSTÄVÄLLISYYS (MEDIA QUERY)
  * ----------------------------------------------------------- */
