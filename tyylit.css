@@ -11,7 +11,7 @@
  * 2. YLEISET ASETUKSET (BODY)
  * ----------------------------------------------------------- */
 body {
-    background-color: #fab4de; /* VENUS */
+    background-color: #f5c9d7; /* VENUS */
     color: #222222; /* Ei aivan pikimusta teksti, retrotyylissä luettavampi */
     font-family: 'EB Garamond', serif; /* Oletusfonttina leipätekstille EB Garamond */
     margin: 0; /* Poistaa selaimeen vakiona tulevat valkoiset reunat */
@@ -36,7 +36,7 @@ body {
 
 /* Ympyrän tyylit */
 .symbol-circle {
-    fill: #fab4de;       /* Ympyrän sisäväri (sama kuin sivun tausta) */
+    fill: #f5c9d7;       /* Ympyrän sisäväri (sama kuin sivun tausta) */
     stroke: #ffffff;     /* Ympyrän reunaviivan väri */
     stroke-width: 3px;   /* Reunaviivan paksuus */
 }
