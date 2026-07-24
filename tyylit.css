@@ -44,7 +44,7 @@ body {
 /* Tähtien yhteiset tyylit */
 .symbol-text {
     font-family: 'JunicodeVF', serif;
-    font-size: 110px; /* HUOM! Tämä arvo säätää tähtien koon suhteessa ympyrään (viewBox on 100x100) */
+    font-size: 120px; /* HUOM! Tämä arvo säätää tähtien koon suhteessa ympyrään (viewBox on 100x100) */
     
     /* Nämä kaksi komentoa tekevät SVG-taikaa ja keskittävät tekstin matemaattisesti */
     text-anchor: middle;         /* Vaakasuuntakeskitys */
