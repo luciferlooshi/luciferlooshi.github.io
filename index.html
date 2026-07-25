@@ -31,21 +31,21 @@
         <path id="black-penta" d="M 50,95 L 23.55,13.59 L 92.80,63.91 L 7.20,63.91 L 76.45,13.59 Z" />
 
         <!-- Maski valkoiselle pentagrammille: 
-             Leikataan valkoiseen viivaan täsmälleen ylittävän mustan viivan levyiset (10px) 
-             ja suuntaiset suorat aukot niissä 10 kohdassa, joissa musta menee yli. -->
-        <mask id="white-star-mask">
+             maskUnits="userSpaceOnUse" estää tähden kärkien neliömäisen leikkautumisen!
+             Polygonit on täsmämitoitettu leikkauskulman mukaan, joten ne eivät vuoda viereisille viivoille. -->
+        <mask id="white-star-mask" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
             <rect x="-40" y="-40" width="180" height="180" fill="white" />
             
-            <polygon points="50.80,39.57 66.98,51.33 72.86,43.24 56.68,31.48" fill="black" />
-            <polygon points="79.14,58.91 59.14,58.91 59.14,68.91 79.14,68.91" fill="black" />
-            <polygon points="55.48,58.91 35.48,58.91 35.48,68.91 55.48,68.91" fill="black" />
-            <polygon points="21.19,59.92 37.37,48.17 31.49,40.08 15.31,51.83" fill="black" />
-            <polygon points="40.33,46.02 56.51,34.26 50.63,26.17 34.45,37.93" fill="black" />
-            <polygon points="67.47,25.04 61.29,44.06 70.80,47.15 76.99,28.13" fill="black" />
-            <polygon points="60.16,47.54 53.98,66.56 63.49,69.65 69.67,50.63" fill="black" />
-            <polygon points="50.53,80.47 44.35,61.44 34.84,64.53 41.02,83.56" fill="black" />
-            <polygon points="43.22,57.97 37.04,38.94 27.53,42.03 33.71,61.06" fill="black" />
-            <polygon points="31.66,25.67 47.84,37.42 53.72,29.33 37.54,17.58" fill="black" />
+            <polygon points="51.94,40.46 65.78,50.52 71.72,42.35 57.87,32.29" fill="black" />
+            <polygon points="74.45,58.86 63.83,58.86 63.83,68.96 74.45,68.96" fill="black" />
+            <polygon points="54.04,58.86 36.93,58.86 36.93,68.96 54.04,68.96" fill="black" />
+            <polygon points="25.02,57.21 33.60,50.97 27.67,42.79 19.08,49.03" fill="black" />
+            <polygon points="41.53,45.21 55.37,35.15 49.44,26.98 35.59,37.04" fill="black" />
+            <polygon points="65.98,29.49 62.70,39.58 72.30,42.70 75.58,32.61" fill="black" />
+            <polygon points="59.67,48.90 54.38,65.17 63.99,68.29 69.28,52.02" fill="black" />
+            <polygon points="49.13,75.99 45.85,65.89 36.25,69.01 39.53,79.11" fill="black" />
+            <polygon points="42.83,56.58 37.54,40.30 27.93,43.42 33.22,59.70" fill="black" />
+            <polygon points="35.43,28.47 44.01,34.71 49.95,26.53 41.36,20.29" fill="black" />
         </mask>
     </defs>
 
@@ -55,7 +55,7 @@
     <!-- Musta pentagrammi alla -->
     <use href="#black-penta" stroke="#222222" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" />
 
-    <!-- Valkoinen pentagrammi maskattuna suorin suorakulmaisin leikkauksin -->
+    <!-- Valkoinen pentagrammi maskattuna täsmällisin suorakulmaisin leikkauksin -->
     <use href="#white-penta" stroke="#ffffff" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" mask="url(#white-star-mask)" />
 </svg>
 
