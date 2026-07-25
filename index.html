@@ -24,58 +24,62 @@
 <!-- YLIN KUVA: Paksut, täydellisesti lomitellut SVG-pentagrammit -->
         <div class="top-image-container">
             <!-- Laajennettu viewBox (-30 -30 160 160), jotta mikään ei leikkaannu -->
-         <svg class="top-symbol-svg" viewBox="-30 -30 160 160" xmlns="http://www.w3.org/2000/svg">
+        <svg class="top-symbol-svg" viewBox="-30 -30 160 160" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <!-- Tähdet -->
         <path id="white-penta" d="M 50,5 L 76.45,86.41 L 7.20,36.09 L 92.80,36.09 L 23.55,86.41 Z" />
         <path id="black-penta" d="M 50,95 L 23.55,13.59 L 92.80,63.91 L 7.20,63.91 L 76.45,13.59 Z" />
 
-        <!-- 5 erillistä maskia jokaiselle valkoiselle viivalle erikseen. 
-             Maski leikkaa VAIN omaa viivaansa eikä vaikuta muihin risteäviin valkoisiin viivoihin! -->
+        <!-- 5 erillistä täsmämaskia valkoisille viivoille. 
+             Suunnikkaan leveys vastaa tasan mustan viivan leveyttä (10.01px), ei aukkoja! -->
         <mask id="mask-w0" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
             <rect x="-40" y="-40" width="180" height="180" fill="white" />
-            <polygon points="56.73,45.11 50.42,25.70 66.93,37.70 73.24,57.11" fill="black" />
-            <polygon points="60.88,57.91 64.78,69.91 77.40,69.91 73.50,57.91" fill="black" />
+            <polygon points="57.58,44.50 52.32,28.31 66.08,38.31 71.34,54.50" fill="black" />
+            <polygon points="62.26,58.90 65.51,68.91 76.02,68.91 72.77,58.90" fill="black" />
         </mask>
 
         <mask id="mask-w1" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
             <rect x="-40" y="-40" width="180" height="180" fill="white" />
-            <polygon points="47.43,57.91 63.95,69.91 43.53,69.91 27.02,57.91" fill="black" />
-            <polygon points="36.55,50.00 26.34,42.58 16.13,50.00 26.34,57.42" fill="black" />
+            <polygon points="47.10,58.90 60.88,68.91 43.86,68.91 30.09,58.90" fill="black" />
+            <polygon points="34.85,50.00 26.34,43.82 17.83,50.00 26.35,56.18" fill="black" />
         </mask>
 
         <mask id="mask-w2" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
             <rect x="-40" y="-40" width="180" height="180" fill="white" />
-            <polygon points="47.43,42.09 27.02,42.09 43.53,30.09 63.95,30.09" fill="black" />
-            <polygon points="60.88,42.09 73.50,42.09 77.40,30.09 64.78,30.09" fill="black" />
+            <polygon points="47.11,41.09 30.08,41.09 43.85,31.09 60.88,31.09" fill="black" />
+            <polygon points="62.25,41.09 72.78,41.09 76.03,31.09 65.50,31.09" fill="black" />
         </mask>
 
         <mask id="mask-w3" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
             <rect x="-40" y="-40" width="180" height="180" fill="white" />
-            <polygon points="56.73,54.89 73.24,42.89 66.93,62.30 50.42,74.30" fill="black" />
-            <polygon points="45.84,62.79 35.64,70.21 39.53,82.21 49.74,74.79" fill="black" />
+            <polygon points="57.57,55.51 71.35,45.50 66.09,61.68 52.31,71.69" fill="black" />
+            <polygon points="45.32,64.41 36.81,70.59 40.06,80.59 48.57,74.41" fill="black" />
         </mask>
 
         <mask id="mask-w4" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
             <rect x="-40" y="-40" width="180" height="180" fill="white" />
-            <polygon points="41.69,50.00 35.38,69.42 29.07,50.00 35.38,30.58" fill="black" />
-            <polygon points="45.84,37.21 49.74,25.21 39.53,17.79 35.64,29.79" fill="black" />
+            <polygon points="40.64,49.99 35.38,66.19 30.12,50.01 35.38,33.81" fill="black" />
+            <polygon points="45.32,35.60 48.57,25.59 40.06,19.40 36.81,29.41" fill="black" />
         </mask>
     </defs>
 
     <!-- Ulompi valkoinen ympyrä -->
     <circle cx="50" cy="50" r="66.18" stroke="#ffffff" stroke-width="10" fill="none" />
 
-    <!-- Musta pentagrammi alla -->
+    <!-- 1. Pohjalla ehjä valkoinen pentagrammi (takaa täydellisen terävät ulkosakarat) -->
+    <use href="#white-penta" stroke="#ffffff" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" />
+
+    <!-- 2. Musta pentagrammi piirrettynä päälle -->
     <use href="#black-penta" stroke="#222222" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" />
 
-    <!-- 5 erillistä valkoista viivaa omilla riippumattomilla maskeillaan -->
-    <line x1="50.00" y1="5.00" x2="76.45" y2="86.41" stroke="#ffffff" stroke-width="10" stroke-linecap="miter" mask="url(#mask-w0)" />
-    <line x1="76.45" y1="86.41" x2="7.20" y2="36.09" stroke="#ffffff" stroke-width="10" stroke-linecap="miter" mask="url(#mask-w1)" />
-    <line x1="7.20" y1="36.09" x2="92.80" y2="36.09" stroke="#ffffff" stroke-width="10" stroke-linecap="miter" mask="url(#mask-w2)" />
-    <line x1="92.80" y1="36.09" x2="23.55" y2="86.41" stroke="#ffffff" stroke-width="10" stroke-linecap="miter" mask="url(#mask-w3)" />
-    <line x1="23.55" y1="86.41" x2="50.00" y2="5.00" stroke="#ffffff" stroke-width="10" stroke-linecap="miter" mask="url(#mask-w4)" />
+    <!-- 3. Viisi erillistä valkoista polkua päällimmäisenä omilla täsmämaskeillaan -->
+    <path d="M 50.00,5.00 L 76.45,86.41" stroke="#ffffff" stroke-width="10" mask="url(#mask-w0)" />
+    <path d="M 76.45,86.41 L 7.20,36.09" stroke="#ffffff" stroke-width="10" mask="url(#mask-w1)" />
+    <path d="M 7.20,36.09 L 92.80,36.09" stroke="#ffffff" stroke-width="10" mask="url(#mask-w2)" />
+    <path d="M 92.80,36.09 L 23.55,86.41" stroke="#ffffff" stroke-width="10" mask="url(#mask-w3)" />
+    <path d="M 23.55,86.41 L 50.00,5.00" stroke="#ffffff" stroke-width="10" mask="url(#mask-w4)" />
 </svg>
+
 
 
 
