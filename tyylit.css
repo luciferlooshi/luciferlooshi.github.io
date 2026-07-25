@@ -34,8 +34,8 @@ body {
 }
 
 .top-symbol-svg {
-    width: 6em;  /* Yläkuvan koko sivulla */
-    height: 6em;
+    width: 7em;  /* Kasvatin hieman kokoa suhteessa alakuviin, muuta jos tarpeen */
+    height: 7em;
     display: inline-block;
 }
 
@@ -89,19 +89,19 @@ body {
 }
 
 .column-symbol-svg {
-    width: 5em; /* Alarivin symbolien koko sivulla (kasvatettu hieman) */
-    height: 5em;
+    width: 6em; /* Voit säätää symbolien visuaalista kokoa ruudulla tästä */
+    height: 6em;
     display: block;
     margin: 0 auto 15px auto;
 }
 
-/* Asetukset kolmelle merkille */
+/* YHTEISET ASETUKSET KAIKILLE KOLMELLE MERKILLE */
 .symbol-left-path,
 .symbol-center-path,
 .symbol-right-path {
     fill: none;
-    stroke-width: 8px; /* HUOMATTAVASTI PAKSUMPI PIIRTOJÄLKI */
-    stroke-linecap: butt; /* Takaa sen, että ristit päättyvät tasaisesti eivätkä työnny ympyrästä yli */
+    stroke-width: 14px;   /* HUOMATTAVASTI PAKSUMPI: 1.8x paksumpi kuin alkuperäinen 8px! */
+    stroke-linecap: butt; /* Takaa, että viivojen päät ovat terävät eivätkä työnny ympyrästä yli */
 }
 
 /* Vasen: Punainen Merkurius */
@@ -112,7 +112,7 @@ body {
 /* Keski: Valkoinen Maa/Aurinkoristi */
 .symbol-center-path {
     stroke: #ffffff; 
-    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5)); /* Pitää valkoisen erottuvana vaalealla taustalla */
+    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.4)); /* Varjo jotta valkoinen paksu viiva erottuu kunnolla */
 }
 
 /* Oikea: Musta Venus */
