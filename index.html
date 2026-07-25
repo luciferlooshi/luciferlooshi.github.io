@@ -25,48 +25,42 @@
         <div class="top-image-container">
             <!-- Laajennettu viewBox (-30 -30 160 160), jotta mikään ei leikkaannu -->
             <svg class="top-symbol-svg" viewBox="-30 -30 160 160" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <!-- Kasvatetut leikkausmaskin ympyrät (r="18"), jotta maskin reunat eivät näy -->
-                    <clipPath id="inner-intersections">
-                        <circle cx="64.62" cy="50" r="18" />
-                        <circle cx="64.62" cy="50" r="18" transform="rotate(72 50 50)" />
-                        <circle cx="64.62" cy="50" r="18" transform="rotate(144 50 50)" />
-                        <circle cx="64.62" cy="50" r="18" transform="rotate(216 50 50)" />
-                        <circle cx="64.62" cy="50" r="18" transform="rotate(288 50 50)" />
-                    </clipPath>
+    <defs>
+        <!-- 10 täsmällistä risteyskohtaa (r=7), joissa musta pentagrammi kulkee valkoisen yli -->
+        <clipPath id="black-over-crossings">
+            <circle cx="35.38" cy="50.00" r="7" />
+            <circle cx="38.17" cy="41.41" r="7" />
+            <circle cx="45.48" cy="36.09" r="7" />
+            <circle cx="54.52" cy="36.09" r="7" />
+            <circle cx="61.83" cy="41.41" r="7" />
+            <circle cx="64.62" cy="50.00" r="7" />
+            <circle cx="61.83" cy="58.59" r="7" />
+            <circle cx="54.52" cy="63.91" r="7" />
+            <circle cx="45.48" cy="63.91" r="7" />
+            <circle cx="38.17" cy="58.59" r="7" />
+        </clipPath>
 
-                    <clipPath id="outer-intersections">
-                        <circle cx="69.14" cy="63.90" r="18" />
-                        <circle cx="69.14" cy="63.90" r="18" transform="rotate(72 50 50)" />
-                        <circle cx="69.14" cy="63.90" r="18" transform="rotate(144 50 50)" />
-                        <circle cx="69.14" cy="63.90" r="18" transform="rotate(216 50 50)" />
-                        <circle cx="69.14" cy="63.90" r="18" transform="rotate(288 50 50)" />
-                    </clipPath>
+        <!-- Tähdet -->
+        <path id="white-penta" d="M 50,5 L 76.45,86.41 L 7.20,36.09 L 92.80,36.09 L 23.55,86.41 Z" />
+        <path id="black-penta" d="M 50,95 L 23.55,13.59 L 92.80,63.91 L 7.20,63.91 L 76.45,13.59 Z" />
 
-                    <!-- Itse tähdet -->
-                    <path id="white-penta" d="M 50,5 L 76.45,86.41 L 7.20,36.10 L 92.80,36.10 L 23.55,86.41 Z" />
-                    <path id="black-penta" d="M 50,95 L 23.55,13.59 L 92.80,63.90 L 7.20,63.90 L 76.45,13.59 Z" />
+        <!-- Maski valkoiselle pentagrammille: tekee kolot niihin 10 kohtaan, joissa musta menee päälle -->
+        <mask id="white-star-mask">
+            <rect x="-40" y="-40" width="180" height="180" fill="white" />
+            <use href="#black-penta" stroke="black" stroke-width="12" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" clip-path="url(#black-over-crossings)" />
+        </mask>
+    </defs>
 
-                    <!-- Laajennettu maski (stroke-width 22), joka luo puhtaan loven punokseen -->
-                    <mask id="white-mask">
-                        <rect x="-40" y="-40" width="180" height="180" fill="white" />
-                        <use href="#black-penta" stroke="black" stroke-width="22" fill="none" stroke-linejoin="miter" clip-path="url(#outer-intersections)" />
-                    </mask>
+    <!-- Ulompi valkoinen ympyrä (r=66.18 koskettaa täydellisesti kaikkia 10 terävää kärkeä) -->
+    <circle cx="50" cy="50" r="66.18" stroke="#ffffff" stroke-width="10" fill="none" />
 
-                    <mask id="black-mask">
-                        <rect x="-40" y="-40" width="180" height="180" fill="white" />
-                        <use href="#white-penta" stroke="black" stroke-width="22" fill="none" stroke-linejoin="miter" clip-path="url(#inner-intersections)" />
-                    </mask>
-                </defs>
+    <!-- Musta pentagrammi alla -->
+    <use href="#black-penta" stroke="#222222" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" />
 
-                <!-- Kaksinkertainen viivanpaksuus: stroke-width="10" -->
-                <!-- Ympyrää kasvatettu (r="68"), jotta paksut tähdenkärjet mahtuvat tarkasti sen sisään -->
-                <circle cx="50" cy="50" r="68" stroke="#ffffff" stroke-width="10" fill="none" />
+    <!-- Valkoinen pentagrammi päällä, maskattuna 10 lomittumiskohdassa -->
+    <use href="#white-penta" stroke="#ffffff" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" mask="url(#white-star-mask)" />
+</svg>
 
-                <!-- Piirretään maskatut tähdet päälle -->
-                <use href="#white-penta" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="miter" mask="url(#white-mask)" />
-                <use href="#black-penta" stroke="#222222" stroke-width="10" fill="none" stroke-linejoin="miter" mask="url(#black-mask)" />
-            </svg>
         </div>
 
         <!-- PÄÄOTSIKKO -->
