@@ -21,44 +21,52 @@
     <!-- PÄÄSÄILIÖ: Tämä rajoittaa sivun maksimileveyttä ja pitää kaiken siististi linjassa -->
     <div class="container">
 
-<!-- YLIN KUVA: SVG-pentagrammit -->
+<!-- YLIN KUVA: Täydellisesti lomitellut SVG-pentagrammit (Aito leikkausmaski) -->
         <div class="top-image-container">
+            <!-- viewBox pidetään samana, mutta elementit skaalattu isommiksi sisällä -->
             <svg class="top-symbol-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <!-- Tämä "maski" leikkaa esiin mustan tähden 5 risteyskohdassa, luoden punoksen -->
-                    <clipPath id="weave-clip">
-                        <circle cx="61.83" cy="41.42" r="7" />
-                        <circle cx="61.83" cy="41.42" r="7" transform="rotate(72 50 50)" />
-                        <circle cx="61.83" cy="41.42" r="7" transform="rotate(144 50 50)" />
-                        <circle cx="61.83" cy="41.42" r="7" transform="rotate(216 50 50)" />
-                        <circle cx="61.83" cy="41.42" r="7" transform="rotate(288 50 50)" />
+                    <!-- Matemaattiset kohdistuspisteet, joissa tähdet risteävät. -->
+                    <clipPath id="inner-intersections">
+                        <circle cx="64.62" cy="50" r="10" />
+                        <circle cx="64.62" cy="50" r="10" transform="rotate(72 50 50)" />
+                        <circle cx="64.62" cy="50" r="10" transform="rotate(144 50 50)" />
+                        <circle cx="64.62" cy="50" r="10" transform="rotate(216 50 50)" />
+                        <circle cx="64.62" cy="50" r="10" transform="rotate(288 50 50)" />
                     </clipPath>
 
-                    <!-- Musta alaspäinen pentagrammi -->
-                    <g id="black-penta">
-                        <path d="M 50,95 L 23.55,13.59 L 92.79,63.92 L 7.21,63.92 L 76.45,13.59 Z" class="weave-gap" />
-                        <path d="M 50,95 L 23.55,13.59 L 92.79,63.92 L 7.21,63.92 L 76.45,13.59 Z" class="black-line" />
-                    </g>
+                    <clipPath id="outer-intersections">
+                        <circle cx="69.14" cy="63.90" r="10" />
+                        <circle cx="69.14" cy="63.90" r="10" transform="rotate(72 50 50)" />
+                        <circle cx="69.14" cy="63.90" r="10" transform="rotate(144 50 50)" />
+                        <circle cx="69.14" cy="63.90" r="10" transform="rotate(216 50 50)" />
+                        <circle cx="69.14" cy="63.90" r="10" transform="rotate(288 50 50)" />
+                    </clipPath>
 
-                    <!-- Valkoinen ylöspäinen pentagrammi -->
-                    <g id="white-penta">
-                        <path d="M 50,5 L 76.45,86.41 L 7.21,36.08 L 92.79,36.08 L 23.55,86.41 Z" class="weave-gap" />
-                        <path d="M 50,5 L 76.45,86.41 L 7.21,36.08 L 92.79,36.08 L 23.55,86.41 Z" class="white-line" />
-                    </g>
+                    <!-- Itse tähdet, laskettuna koskettamaan tismalleen sädettä 45 -->
+                    <path id="white-penta" d="M 50,5 L 76.45,86.41 L 7.20,36.10 L 92.80,36.10 L 23.55,86.41 Z" />
+                    <path id="black-penta" d="M 50,95 L 23.55,13.59 L 92.80,63.90 L 7.20,63.90 L 76.45,13.59 Z" />
+
+                    <!-- AITO MASKI: Tekee viivoihin läpinäkyvän "loven" risteyskohdissa, jättäen taustan koskemattomaksi -->
+                    <mask id="white-mask">
+                        <rect width="100" height="100" fill="white" />
+                        <!-- Leikkaa valkoisen mustan alta ulommissa risteyskohdissa -->
+                        <use href="#black-penta" stroke="black" stroke-width="12" fill="none" stroke-linejoin="miter" clip-path="url(#outer-intersections)" />
+                    </mask>
+
+                    <mask id="black-mask">
+                        <rect width="100" height="100" fill="white" />
+                        <!-- Leikkaa mustan valkoisen alta sisemmissä risteyskohdissa -->
+                        <use href="#white-penta" stroke="black" stroke-width="12" fill="none" stroke-linejoin="miter" clip-path="url(#inner-intersections)" />
+                    </mask>
                 </defs>
 
-                <!-- Ympäröivä valkoinen ympyrä -->
-                <circle cx="50" cy="50" r="48" class="white-line" />
+                <!-- 1. Ympäröivä valkoinen ympyrä -->
+                <circle cx="50" cy="50" r="45" stroke="#ffffff" stroke-width="5" fill="none" />
 
-                <!-- 1. Musta pentagrammi alimmaiseksi -->
-                <use href="#black-penta" />
-
-                <!-- 2. Valkoinen pentagrammi päälle (menee kaikkialla yli) -->
-                <use href="#white-penta" />
-
-                <!-- 3. Musta pentagrammi UUDELLEEN vain maskin rei'issä, 
-                        jolloin musta livahtaa vuorostaan valkoisen yli! -->
-                <use href="#black-penta" clip-path="url(#weave-clip)" />
+                <!-- 2. Piirretään maskatut tähdet päälle. fill="none" estää mustat sisukset! -->
+                <use href="#white-penta" stroke="#ffffff" stroke-width="5" fill="none" stroke-linejoin="miter" mask="url(#white-mask)" />
+                <use href="#black-penta" stroke="#222222" stroke-width="5" fill="none" stroke-linejoin="miter" mask="url(#black-mask)" />
             </svg>
         </div>
 
@@ -81,34 +89,34 @@ Looshia ohjaavat sorores Aranea & S.
 
         </p>
 
-     <!-- KOLMEN KUVAN RIVISTÖ: Rinnakkainen asettelu SVG-grafiikalla -->
+<!-- KOLMEN KUVAN RIVISTÖ: Paksut, tasakylkiset SVG-symbolit -->
         <div class="three-column-grid">
 
-            <!-- Vasen sarake (Punainen Merkurius ☿) -->
+            <!-- Vasen: Punainen Merkurius ☿ -->
             <div class="column">
-                <svg class="column-symbol-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <svg class="column-symbol-svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
                     <g class="symbol-left-path">
+                        <!-- Sarvet (Täydellinen alaspäin kaareutuva U-muoto, lepää ympyrän päällä) -->
+                        <path d="M 30,20 A 20,20 0 0,0 70,20" />
                         <!-- Ympyrä -->
-                        <circle cx="50" cy="55" r="18" />
-                        <!-- Risti (vaakaviiva istuu täydellisesti ympyrän leveyteen) -->
-                        <line x1="50" y1="73" x2="50" y2="95" />
-                        <line x1="32" y1="84" x2="68" y2="84" />
-                        <!-- Sarvet (Täydellinen puoliympyrä horisontaalisella "leikkauksella") -->
-                        <path d="M 32,37 A 18,18 0 0,1 68,37" />
+                        <circle cx="50" cy="40" r="20" />
+                        <!-- Tasakylkinen risti (Vaaka- ja pystysakarat ovat täysin samanmittaiset) -->
+                        <line x1="50" y1="60" x2="50" y2="100" />
+                        <line x1="30" y1="80" x2="70" y2="80" />
                     </g>
                 </svg>
                 <p class="column-text">Yleiset yhteydenotot ja vierailukyselyt looshiin voit lähettää soror Aranealle osoitteeseen sor.aranea (ät) gmail.com.</p>
             </div>
 
-           <!-- Keskinen sarake (Aurinkopyörä ⊕) -->
+<!-- Keski: Valkoinen Aurinkopyörä ⊕ -->
             <div class="column">
-                <svg class="column-symbol-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <svg class="column-symbol-svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
                     <g class="symbol-center-path">
-                        <!-- Ympyrä -->
-                        <circle cx="50" cy="57" r="38" />
-                        <!-- Risti -->
-                        <line x1="50" y1="19" x2="50" y2="95" />
-                        <line x1="12" y1="57" x2="88" y2="57" />
+                        <!-- Ympyrä (Skaalattu tasapainoon muiden symbolien korkeuden kanssa) -->
+                        <circle cx="50" cy="50" r="40" />
+                        <!-- Risti (Koskettaa ympyrän reunoja ilman rakoja, luoden täydellisen keskuksen) -->
+                        <line x1="50" y1="10" x2="50" y2="90" />
+                        <line x1="10" y1="50" x2="90" y2="50" />
                     </g>
                 </svg>
                 <p class="column-text">Looshiin jäseneksi haetaan sähköpostitse lähetetyllä hakemuksella (ks. yleinen ohjeistus alta). PDF-muoto on toivottava.
@@ -135,16 +143,15 @@ Jäsenhakemus on vapaamuotoinen, mutta siihen tulee sisällyttää seuraavat sei
 
 Toivottu pituus noin 2-3 sivua.</p>
             </div>
-
-           <!-- Oikea sarake (Musta Venus ♀) -->
+<!-- Oikea: Musta Venus ♀ -->
             <div class="column">
-                <svg class="column-symbol-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <svg class="column-symbol-svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
                     <g class="symbol-right-path">
-                        <!-- Ympyrä (Suhteessa isompi, jotta kokonaiskorkeus on sama kuin muilla) -->
-                        <circle cx="50" cy="42" r="23" />
-                        <!-- Risti (vaakaviiva istuu täydellisesti ympyrän leveyteen) -->
-                        <line x1="50" y1="65" x2="50" y2="95" />
-                        <line x1="27" y1="80" x2="73" y2="80" />
+                        <!-- Ympyrä (Skaalattu niin, että koko symboli on tasan yhtä korkea kuin Merkurius) -->
+                        <circle cx="50" cy="25" r="25" />
+                        <!-- Tasakylkinen risti (Sopii täydellisesti ympyrän 50px leveyteen) -->
+                        <line x1="50" y1="50" x2="50" y2="100" />
+                        <line x1="25" y1="75" x2="75" y2="75" />
                     </g>
                 </svg>
                 <p class="column-text">Looshin meditatiivinen symbolikuva, embleemi, on seuraavanlainen: Enkeli Lucifer kumartuu asettamaan kirkkaan kruununsa jumalten ja ihmisten maailmaa yhdistävälle sateenkaarisillalle palvellakseen siten korkeinta totuutta ja syvintä merkitystä (“Jumalaa”) ihmiskunnan auttamisen kautta.            
