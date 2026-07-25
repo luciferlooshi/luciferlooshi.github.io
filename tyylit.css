@@ -114,7 +114,15 @@ body {
 .symbol-right-path {
     stroke: #222222; 
 }
-
+.column-text {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin: 0;
+    text-align: justify;
+    white-space: pre-line;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
 
 /* -----------------------------------------------------------
  * 9. MOBIILIYSTÄVÄLLISYYS (MEDIA QUERY)
