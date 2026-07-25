@@ -39,11 +39,7 @@ body {
     display: inline-block;
 }
 
-/* Poistettu aiemmat "weave-gap"-kikkailut. Viivojen päät leikkautuvat nyt siististi miterillä. */
-.top-symbol-svg path, 
-.top-symbol-svg circle {
-    stroke-linecap: butt;
-}
+
 
 
 /* -----------------------------------------------------------
