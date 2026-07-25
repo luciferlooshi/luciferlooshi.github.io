@@ -24,73 +24,72 @@
 <!-- YLIN KUVA: Paksut, täydellisesti lomitellut SVG-pentagrammit -->
         <div class="top-image-container">
             <!-- Laajennettu viewBox (-30 -30 160 160), jotta mikään ei leikkaannu -->
-     <svg class="top-symbol-svg" viewBox="-30 -30 160 160" xmlns="http://www.w3.org/2000/svg">
+<svg class="top-symbol-svg" viewBox="-30 -30 160 160" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <!-- Tähdet (+20% skaalaus, säde R=54) -->
+                    <!-- Tähdet skaalattu 20% (säde R=54) -->
                     <path id="white-penta" d="M 50,-4 L 81.74,93.69 L -1.36,33.31 L 101.36,33.31 L 18.26,93.69 Z" />
                     <path id="black-penta" d="M 50,104 L 18.26,6.31 L 101.36,66.69 L -1.36,66.69 L 81.74,6.31 Z" />
 
-                    <!-- Rajausmaski: Pohja-valkoinen pentagrammi piirretään VAIN 5 ulkosakaran kärkeen -->
+                    <!-- Rajausmaski: Pohja-valkoinen pentagrammi piirretään VAIN 5 ulkosakaran kärkeen. 
+                         Sädettä kasvatettu (r=22), jotta se peittää paksunnetun ja pidentyneen kärjen kokonaan. -->
                     <clipPath id="outer-white-tips-only">
-                        <circle cx="50.00" cy="-4.00" r="20" />
-                        <circle cx="81.74" cy="93.69" r="20" />
-                        <circle cx="-1.36" cy="33.31" r="20" />
-                        <circle cx="101.36" cy="33.31" r="20" />
-                        <circle cx="18.26" cy="93.69" r="20" />
+                        <circle cx="50.00" cy="-4.00" r="22" />
+                        <circle cx="81.74" cy="93.69" r="22" />
+                        <circle cx="-1.36" cy="33.31" r="22" />
+                        <circle cx="101.36" cy="33.31" r="22" />
+                        <circle cx="18.26" cy="93.69" r="22" />
                     </clipPath>
 
-                    <!-- Maskit valkoisille päällimmäisille viivoille (päivitetty 5px paksuudelle + 2px leikkausraolle) -->
+                    <!-- Maskit valkoisille päällimmäisille viivoille.
+                         HUOM: Maskin viivan paksuus on nyt TÄSMÄLLEEN sama (7.88) kuin piirtoviivalla.
+                         Tämä korjaa aiemmat "katkokset" ja raot limityksissä. -->
                     <mask id="mask-w0" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
                         <rect x="-40" y="-40" width="180" height="180" fill="white" />
-                        <line x1="18.26" y1="6.31" x2="101.36" y2="66.69" stroke="black" stroke-width="7" fill="none" />
-                        <line x1="101.36" y1="66.69" x2="-1.36" y2="66.69" stroke="black" stroke-width="7" fill="none" />
+                        <line x1="18.26" y1="6.31" x2="101.36" y2="66.69" stroke="black" stroke-width="7.88" fill="none" />
+                        <line x1="101.36" y1="66.69" x2="-1.36" y2="66.69" stroke="black" stroke-width="7.88" fill="none" />
                     </mask>
 
                     <mask id="mask-w1" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
                         <rect x="-40" y="-40" width="180" height="180" fill="white" />
-                        <line x1="101.36" y1="66.69" x2="-1.36" y2="66.69" stroke="black" stroke-width="7" fill="none" />
-                        <line x1="-1.36" y1="66.69" x2="81.74" y2="6.31" stroke="black" stroke-width="7" fill="none" />
+                        <line x1="101.36" y1="66.69" x2="-1.36" y2="66.69" stroke="black" stroke-width="7.88" fill="none" />
+                        <line x1="-1.36" y1="66.69" x2="81.74" y2="6.31" stroke="black" stroke-width="7.88" fill="none" />
                     </mask>
 
                     <mask id="mask-w2" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
                         <rect x="-40" y="-40" width="180" height="180" fill="white" />
-                        <line x1="-1.36" y1="66.69" x2="81.74" y2="6.31" stroke="black" stroke-width="7" fill="none" />
-                        <line x1="81.74" y1="6.31" x2="50" y2="104" stroke="black" stroke-width="7" fill="none" />
+                        <line x1="-1.36" y1="66.69" x2="81.74" y2="6.31" stroke="black" stroke-width="7.88" fill="none" />
+                        <line x1="81.74" y1="6.31" x2="50" y2="104" stroke="black" stroke-width="7.88" fill="none" />
                     </mask>
 
                     <mask id="mask-w3" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
                         <rect x="-40" y="-40" width="180" height="180" fill="white" />
-                        <line x1="81.74" y1="6.31" x2="50" y2="104" stroke="black" stroke-width="7" fill="none" />
-                        <line x1="50" y1="104" x2="18.26" y2="6.31" stroke="black" stroke-width="7" fill="none" />
+                        <line x1="81.74" y1="6.31" x2="50" y2="104" stroke="black" stroke-width="7.88" fill="none" />
+                        <line x1="50" y1="104" x2="18.26" y2="6.31" stroke="black" stroke-width="7.88" fill="none" />
                     </mask>
 
                     <mask id="mask-w4" maskUnits="userSpaceOnUse" x="-40" y="-40" width="180" height="180">
                         <rect x="-40" y="-40" width="180" height="180" fill="white" />
-                        <line x1="50" y1="104" x2="18.26" y2="6.31" stroke="black" stroke-width="7" fill="none" />
-                        <line x1="18.26" y1="6.31" x2="101.36" y2="66.69" stroke="black" stroke-width="7" fill="none" />
+                        <line x1="50" y1="104" x2="18.26" y2="6.31" stroke="black" stroke-width="7.88" fill="none" />
+                        <line x1="18.26" y1="6.31" x2="101.36" y2="66.69" stroke="black" stroke-width="7.88" fill="none" />
                     </mask>
                 </defs>
 
-                <!-- Ulompi valkoinen ympyrä (Säde 56.5px & paksuus 5px -> Sisäreuna asettuu täsmälleen etäisyydelle 54px) -->
-                <circle cx="50" cy="50" r="56.5" stroke="#ffffff" stroke-width="5" fill="none" />
+                <!-- Ulompi valkoinen ympyrä (Kasvatettu! Keskiviiva säteellä 70.69 -> Sisäreuna asettuu tarkasti arvoon 66.75, joka on kärkien maksimiulottuvuus) -->
+                <circle cx="50" cy="50" r="70.69" stroke="#ffffff" stroke-width="7.88" fill="none" />
 
                 <!-- 1. Pohja-valkoinen pentagrammi VAIN 5 ulkosakaran kärkipisteessä -->
-                <use href="#white-penta" stroke="#ffffff" stroke-width="5" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" clip-path="url(#outer-white-tips-only)" />
+                <use href="#white-penta" stroke="#ffffff" stroke-width="7.88" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" clip-path="url(#outer-white-tips-only)" />
 
                 <!-- 2. Musta pentagrammi -->
-                <use href="#black-penta" stroke="#222222" stroke-width="5" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" />
+                <use href="#black-penta" stroke="#222222" stroke-width="7.88" stroke-linejoin="miter" stroke-miterlimit="10" fill="none" />
 
                 <!-- 3. Viisi erillistä valkoista polkua päällimmäisenä omilla maskeillaan -->
-                <path d="M 50.00,-4.00 L 81.74,93.69" stroke="#ffffff" stroke-width="5" stroke-linecap="square" mask="url(#mask-w0)" />
-                <path d="M 81.74,93.69 L -1.36,33.31" stroke="#ffffff" stroke-width="5" stroke-linecap="square" mask="url(#mask-w1)" />
-                <path d="M -1.36,33.31 L 101.36,33.31" stroke="#ffffff" stroke-width="5" stroke-linecap="square" mask="url(#mask-w2)" />
-                <path d="M 101.36,33.31 L 18.26,93.69" stroke="#ffffff" stroke-width="5" stroke-linecap="square" mask="url(#mask-w3)" />
-                <path d="M 18.26,93.69 L 50.00,-4.00" stroke="#ffffff" stroke-width="5" stroke-linecap="square" mask="url(#mask-w4)" />
+                <path d="M 50.00,-4.00 L 81.74,93.69" stroke="#ffffff" stroke-width="7.88" stroke-linecap="square" mask="url(#mask-w0)" />
+                <path d="M 81.74,93.69 L -1.36,33.31" stroke="#ffffff" stroke-width="7.88" stroke-linecap="square" mask="url(#mask-w1)" />
+                <path d="M -1.36,33.31 L 101.36,33.31" stroke="#ffffff" stroke-width="7.88" stroke-linecap="square" mask="url(#mask-w2)" />
+                <path d="M 101.36,33.31 L 18.26,93.69" stroke="#ffffff" stroke-width="7.88" stroke-linecap="square" mask="url(#mask-w3)" />
+                <path d="M 18.26,93.69 L 50.00,-4.00" stroke="#ffffff" stroke-width="7.88" stroke-linecap="square" mask="url(#mask-w4)" />
             </svg>
-
-
-
-
 
 
 
