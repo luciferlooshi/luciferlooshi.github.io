@@ -34,35 +34,15 @@ body {
 }
 
 .top-symbol-svg {
-    width: 6em;  /* Säädä yläkuvan kokoa tästä! */
+    width: 6em;  /* Yläkuvan koko sivulla */
     height: 6em;
     display: inline-block;
 }
 
-/* Yhteiset asetukset pentagrammeille */
-.top-symbol-svg circle, 
-.top-symbol-svg path {
-    fill: none;
+/* Poistettu aiemmat "weave-gap"-kikkailut. Viivojen päät leikkautuvat nyt siististi miterillä. */
+.top-symbol-svg path, 
+.top-symbol-svg circle {
     stroke-linecap: butt;
-    stroke-linejoin: miter;
-}
-
-/* Tämä luo viivoille pienen "reunan", joka saa punoksen leikkautumaan aidon näköisesti */
-.weave-gap {
-    stroke: #f7e6f6; /* PITÄÄ OLLA SAMA KUIN SIVUSTON TAUSTAVÄRI! */
-    stroke-width: 6px; 
-}
-
-/* Valkoiset viivat (sekä tähti että ympäröivä ympyrä) */
-.white-line {
-    stroke: #ffffff;
-    stroke-width: 2.5px;
-}
-
-/* Mustat viivat */
-.black-line {
-    stroke: #222222;
-    stroke-width: 2.5px;
 }
 
 
@@ -109,19 +89,19 @@ body {
 }
 
 .column-symbol-svg {
-    width: 4.5em; /* Säädä alarivin symbolien kokoa tästä! */
-    height: 4.5em;
+    width: 5em; /* Alarivin symbolien koko sivulla (kasvatettu hieman) */
+    height: 5em;
     display: block;
     margin: 0 auto 15px auto;
 }
 
-/* Asetukset kolmelle merkille (tasainen paksuus ja reunat) */
+/* Asetukset kolmelle merkille */
 .symbol-left-path,
 .symbol-center-path,
 .symbol-right-path {
     fill: none;
-    stroke-width: 5px; /* Tekee piirtojäljestä mukavan jämäkän */
-    stroke-linecap: butt; /* Ristin viivat katkeavat tasaisesti, eivät pyöreinä */
+    stroke-width: 8px; /* HUOMATTAVASTI PAKSUMPI PIIRTOJÄLKI */
+    stroke-linecap: butt; /* Takaa sen, että ristit päättyvät tasaisesti eivätkä työnny ympyrästä yli */
 }
 
 /* Vasen: Punainen Merkurius */
@@ -132,22 +112,12 @@ body {
 /* Keski: Valkoinen Maa/Aurinkoristi */
 .symbol-center-path {
     stroke: #ffffff; 
-
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5)); /* Pitää valkoisen erottuvana vaalealla taustalla */
 }
 
 /* Oikea: Musta Venus */
 .symbol-right-path {
     stroke: #222222; 
-}
-
-.column-text {
-    font-size: 1.1em;
-    line-height: 1.5;
-    margin: 0;
-    text-align: justify;
-    white-space: pre-line;
-    -webkit-hyphens: auto;
-    hyphens: auto;
 }
 
 
