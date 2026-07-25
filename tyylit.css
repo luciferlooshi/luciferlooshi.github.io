@@ -89,8 +89,8 @@ body {
 }
 
 .column-symbol-svg {
-    width: 6em; /* Voit säätää symbolien visuaalista kokoa ruudulla tästä */
-    height: 6em;
+    width: 10em; /* Voit säätää symbolien visuaalista kokoa ruudulla tästä */
+    height: 10em;
     display: block;
     margin: 0 auto 15px auto;
 }
@@ -100,7 +100,7 @@ body {
 .symbol-center-path,
 .symbol-right-path {
     fill: none;
-    stroke-width: 14px;   /* HUOMATTAVASTI PAKSUMPI: 1.8x paksumpi kuin alkuperäinen 8px! */
+    stroke-width: 20px;   /* HUOMATTAVASTI PAKSUMPI: 1.8x paksumpi kuin alkuperäinen 8px! */
     stroke-linecap: butt; /* Takaa, että viivojen päät ovat terävät eivätkä työnny ympyrästä yli */
 }
 
@@ -112,7 +112,6 @@ body {
 /* Keski: Valkoinen Maa/Aurinkoristi */
 .symbol-center-path {
     stroke: #ffffff; 
-    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.4)); /* Varjo jotta valkoinen paksu viiva erottuu kunnolla */
 }
 
 /* Oikea: Musta Venus */
