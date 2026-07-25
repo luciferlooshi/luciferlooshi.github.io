@@ -96,7 +96,7 @@ body {
 .symbol-center-path,
 .symbol-right-path {
     fill: none;
-    stroke-width: 17px;   /* HUOMATTAVASTI PAKSUMPI: 1.8x paksumpi kuin alkuperäinen 8px! */
+    stroke-width: 12px;   /* HUOMATTAVASTI PAKSUMPI: 1.8x paksumpi kuin alkuperäinen 8px! */
     stroke-linecap: butt; /* Takaa, että viivojen päät ovat terävät eivätkä työnny ympyrästä yli */
 }
 
