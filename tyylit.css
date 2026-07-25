@@ -26,43 +26,43 @@ body {
 }
 
 /* -----------------------------------------------------------
- * 4. YLÄKUVA / SYMBOLI - SVG
+ * 4. YLÄKUVA / LOMITELLUT SVG-PENTAGRAMMIT
  * ----------------------------------------------------------- */
 .top-image-container {
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* Tämä määrittää koko symbolin lopullisen koon sivulla */
 .top-symbol-svg {
-    width: 5em;  /* Voit kasvattaa tai pienentää tätä vapaasti! */
-    height: 5em;
+    width: 6em;  /* Säädä yläkuvan kokoa tästä! */
+    height: 6em;
     display: inline-block;
 }
 
-/* Ympyrän tyylit */
-.symbol-circle {
-    fill: #f7e6f6;       /* Ympyrän sisäväri (sama kuin sivun tausta) */
-    stroke: #ffffff;     /* Ympyrän reunaviivan väri */
-    stroke-width: 3px;   /* Reunaviivan paksuus */
+/* Yhteiset asetukset pentagrammeille */
+.top-symbol-svg circle, 
+.top-symbol-svg path {
+    fill: none;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
 }
 
-/* Tähtien yhteiset tyylit */
-.symbol-text {
-    font-family: 'JunicodeVF', serif;
-    font-size: 114.5px; /* HUOM! Tämä arvo säätää tähtien koon suhteessa ympyrään (viewBox on 100x100) */
-    
-    /* Nämä kaksi komentoa tekevät SVG-taikaa ja keskittävät tekstin matemaattisesti */
-    text-anchor: middle;         /* Vaakasuuntakeskitys */
-    dominant-baseline: central;  /* Pystysuuntakeskitys */
+/* Tämä luo viivoille pienen "reunan", joka saa punoksen leikkautumaan aidon näköisesti */
+.weave-gap {
+    stroke: #f7e6f6; /* PITÄÄ OLLA SAMA KUIN SIVUSTON TAUSTAVÄRI! */
+    stroke-width: 6px; 
 }
 
-.white-star {
-    fill: #ffffff; /* SVG:ssä tekstin väri määritetään fill-komennolla, ei colorilla */
+/* Valkoiset viivat (sekä tähti että ympäröivä ympyrä) */
+.white-line {
+    stroke: #ffffff;
+    stroke-width: 2.5px;
 }
 
-.black-star {
-    fill: #222222;
+/* Mustat viivat */
+.black-line {
+    stroke: #222222;
+    stroke-width: 2.5px;
 }
 
 
@@ -100,7 +100,7 @@ body {
 }
 
 /* -----------------------------------------------------------
- * 8. YKSITTÄINEN SARAKE JA SEN SISÄLTÖ (SYMBOLEILLA)
+ * 8. ALARIVIN KOLME SVG-SYMBOLIA
  * ----------------------------------------------------------- */
 .column {
     flex: 1; 
@@ -108,28 +108,36 @@ body {
     flex-direction: column; 
 }
 
-/* Yhteiset asetukset kaikille kolmelle symbolille */
-.column-symbol {
-    font-family: 'JunicodeVF', serif;
-    font-size: 5em; /* Määrittää merkkien koon, säädä tarvittaessa (esim. 4em tai 6em) */
-    text-align: center; /* Keskittää symbolin sarakkeen keskelle */
-    margin-bottom: 15px; /* Jättää tilaa symbolin ja leipätekstin väliin */
-    line-height: 1; /* Estää turhan tyhjän tilan merkin ylä- ja alapuolella */
+.column-symbol-svg {
+    width: 4.5em; /* Säädä alarivin symbolien kokoa tästä! */
+    height: 4.5em;
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
-/* Vasen: Punainen */
-.symbol-left {
-    color: #cc0000; /* Syvä punainen */
+/* Asetukset kolmelle merkille (tasainen paksuus ja reunat) */
+.symbol-left-path,
+.symbol-center-path,
+.symbol-right-path {
+    fill: none;
+    stroke-width: 5px; /* Tekee piirtojäljestä mukavan jämäkän */
+    stroke-linecap: butt; /* Ristin viivat katkeavat tasaisesti, eivät pyöreinä */
 }
 
-/* Keski: Valkoinen */
-.symbol-center {
-    color: #ffffff; 
+/* Vasen: Punainen Merkurius */
+.symbol-left-path {
+    stroke: #cc0000; 
 }
 
-/* Oikea: Musta */
-.symbol-right {
-    color: #222222; /* Sama pehmeä musta kuin leipätekstissä */
+/* Keski: Valkoinen Maa/Aurinkoristi */
+.symbol-center-path {
+    stroke: #ffffff; 
+
+}
+
+/* Oikea: Musta Venus */
+.symbol-right-path {
+    stroke: #222222; 
 }
 
 .column-text {
@@ -141,6 +149,8 @@ body {
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+
+
 /* -----------------------------------------------------------
  * 9. MOBIILIYSTÄVÄLLISYYS (MEDIA QUERY)
  * ----------------------------------------------------------- */
