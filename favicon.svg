@@ -1,6 +1,6 @@
 <svg viewBox="-20 -20 140 140" xmlns="http://www.w3.org/2000/svg">
     <!-- Määritellään väri, paksuus ja täyttö suoraan <g>-ryhmään -->
-    <g stroke="#8A2BE2" stroke-width="10" fill="none">
+    <g stroke="#7BOOFF" stroke-width="10" fill="none">
         <!-- Ympyrä. Ylin piste 5, alin 53. -->
         <circle cx="50" cy="29" r="24" />
         <!-- Risti (Tasakylkinen: korkeus 42, leveys 42. Yhtä korkea kuin Merkurius) -->
