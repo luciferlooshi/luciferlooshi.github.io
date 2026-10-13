@@ -165,4 +165,14 @@ body {
     /* TAVUTUS LISÄTTY TÄHÄN: */
     -webkit-hyphens: auto; /* Varmistaa toimivuuden Safarilla / Applen laitteilla */
     hyphens: auto;         /* Standardikomento kaikille nykyselaimille */
-}
+    
+    a:link {
+  color: #cc0000;
+            }
+
+    /* visited link */
+    a:visited 
+    {
+      color: #cc0000;
+    }
+    }
